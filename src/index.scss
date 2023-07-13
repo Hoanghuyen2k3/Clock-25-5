@@ -1,0 +1,76 @@
+
+*, *::before, *::after{
+  box-sizing: border-box;
+  margin: 0;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+}
+body{
+  background: linear-gradient(30deg, rgb(238, 173, 184) 0%, rgb(130, 180, 230) 100%);
+}
+.App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  height: 600px;
+  flex-wrap: wrap;
+}
+.title{
+  word-spacing: 10px;
+  margin-bottom: 40px;
+}
+h1 {
+  font-weight: 700;
+}
+.setTime, .controler, .number{
+  display:flex;
+  justify-content: space-between;
+}
+.counter{
+  width: 30%;
+  border: 2px solid bisque;
+  padding: 30px;
+  h3 {
+    word-spacing: 10px;
+  }
+  .number{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+}
+
+.icon {
+  &:hover{
+    cursor: pointer;
+  }
+  &:active{
+    color: rgb(237, 218, 72);
+  }
+}
+.break {
+  margin: 20px;
+  h3, h1 {
+    margin-bottom: 20px;
+    word-spacing: 10px;
+  }
+  h1 {
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+}
+.red {
+  color: red;
+  h1 {
+    box-shadow: rgba(196, 25, 25, 0.35) 0px 5px 15px;
+  }
+}
+.controler{
+  margin-bottom: 20px;
+}
+.c {
+  margin: 20px;
+  size: 20px;
+
+}
