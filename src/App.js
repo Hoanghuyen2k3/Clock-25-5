@@ -67,7 +67,6 @@ function App() {
   const handleClick = (e) =>{
     e.preventDefault();
     setPlay(play =>!play);
-    setRemainder({...session});
   }
   const handleRestart = (e) =>{
     e.preventDefault();
@@ -103,12 +102,12 @@ function App() {
     <div className="App">
       <h1 className="title">25 + 5 CLOCK</h1>
       <div className="setTime">
-        <Counter name="Break Length" count={br} setCount={setBr} play={play} />
-        <Counter name="Session Length" count={session} setCount={setSession} play={play} />
+        <Counter setRemainder={setRemainder} name="Break Length" count={br} setCount={setBr} play={play} />
+        <Counter setRemainder={setRemainder} name="Session Length" count={session} setCount={setSession} play={play} />
       </div>
       <div className={remainder.minute<=1 ? "break red": "break normal"}>
         <h3>Break</h3>
-        <h1>{!play ?`${session.minute} : `+formatSecond(session.second) : `${remainder.minute} : `+formatSecond(remainder.second)}</h1>
+        <h1>{ `${remainder.minute} : `+formatSecond(remainder.second)}</h1>
       </div>
       <div className="controler">
         <div className="icon c" onClick={handleClick}><FaPlayCircle size={25}/></div>

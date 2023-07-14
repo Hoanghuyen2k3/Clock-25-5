@@ -1,6 +1,6 @@
 import React from 'react';
 import {FaArrowUp, FaArrowDown} from "react-icons/fa";
-function Counter({count, name, setCount, play}){
+function Counter({setRemainder, count, name, setCount, play}){
     
     const handleUP=(e)=>{
         e.preventDefault();
@@ -8,15 +8,26 @@ function Counter({count, name, setCount, play}){
             if(count.minute ===60){
                 return;
             }
-            setCount((count)=>{
+            
+            else{
+                setCount((count)=>{
                 return({
                     ...count,
                     minute: count.minute+ 1,
                     second:0
                 })
-            });
-            
-        }
+            }); 
+            if(count.name==="session" ){
+
+             setRemainder(()=>{
+                return({
+                    name: "session",
+                    minute: count.minute+ 1,
+                    second:0
+                })
+            })
+        }         
+        }}
 
         
     }
@@ -25,14 +36,28 @@ function Counter({count, name, setCount, play}){
         if(play ===false ){
             if(count.minute ===0){
                 return;
+
             }
-            setCount((count)=>{
-                return({
-                    ...count,
-                    minute: count.minute - 1,
-                    second:0
-                })
-            });
+            else{
+                setCount((count)=>{
+                    return({
+                        ...count,
+                        minute: count.minute - 1,
+                        second:0
+                    })
+                });
+                if(count.name==="session"){
+
+                    setRemainder(()=>{
+                    return({
+                        name: "session",
+                        minute: count.minute- 1,
+                        second:0
+                    })
+                })}    
+
+            }
+            
 
         }
         
